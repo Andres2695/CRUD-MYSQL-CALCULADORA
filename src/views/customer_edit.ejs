@@ -1,0 +1,30 @@
+<%- include('partials/_header') %>
+<div class="container mt-5">
+    <div class="rows">
+        <div class="col -md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/update/<%= data.id%>" method="post">
+                        <div class="form.goup">
+                            <input type="text" name="name" value="<%= data.name%>" class="from-control"> 
+                        
+                        </div>
+                        <div class="form.goup">
+                            <input type="text" name="address" value="<%= data.address%>" class="from-control"> 
+                        
+                        </div>
+                        <div class="form.goup">
+                            <input type="text" name="phone" value="<%= data.phone%>" class="from-control"> 
+                        
+                        </div>
+                        <button type="submit" class="btn btn-primary"> 
+                            Edit Customer
+                        </button>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/_footer') %>
