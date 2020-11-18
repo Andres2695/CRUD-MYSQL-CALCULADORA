@@ -1,5 +1,5 @@
 {
-  "name": "CRUD-MYSQL",
+  "name": "CRUD-CALCULADORA",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "start": "nodemon src/app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Andres Gomez Rodriguez",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.5",

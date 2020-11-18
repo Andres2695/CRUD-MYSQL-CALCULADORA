@@ -1,7 +1,5 @@
 
 <%- include('partials/_header') %>
-
-
 <div class="container">
     <div class="row mt-5">
         <div class="col-md-7">
@@ -9,9 +7,13 @@
                 <thead>
                     <tr>
                         <th>n°</th>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Phone</th>
+                        <th>valueOne</th>
+                        <th>valueTwo</th>
+                        <th>Suma</th>
+                        <th>Resta</th>
+                        <th>Multi</th>
+                        <th>Divi</th>
+                        
                         <th>Actions</th>
                     </tr>
 
@@ -21,17 +23,18 @@
                         <% for(var i = 0; i < data.length; i++) {%>
                             <tr>
                                 <td><%= (i+1) %></td>
-                                <td><%= data [i].name %></td>
-                                <td><%= data [i].address %></td>
-                                <td><%= data [i].phone %></td>
+                                <td><%= data [i].valueOne %></td>
+                                <td><%= data [i].valueTwo %></td>
+                                <td><%= data [i].valueTwo +data [i].valueOne %></td>
+                                <td><%=  data [i].valueTwo  - data [i].valueOne %></td>
+                                <td><%= data [i].valueTwo  * data [i].valueOne %></td>
+                                <td><%= data [i].valueTwo  / data [i].valueOne %></td>
                                 <td>
                                     <a href="/delete/<%= data[i].id %>" class="btn btn-danger">DELETE</a>
                                     <a href="/update/<%= data[i].id %>" class="btn btn-info">Update</a>
                                 </td>
                             </tr>
-
                        <% } %>
-
                    <% } %>
 
                 </tbody>
@@ -39,24 +42,20 @@
             </table>
 
         </div>
-        <div class="col-md-5">
+        <div class="col-md-7">
             <div class="card">
                 <div class="card-body">
                     <form action="/add" method="post">
                         <div class="form.goup">
-                            <input type="text" name="name" placeholder="Name" class="from-control"> 
+                            <input type="text" name="valueOne" placeholder="valueOne" class="from-control"> 
                         
                         </div>
                         <div class="form.goup">
-                            <input type="text" name="address" placeholder="Address" class="from-control"> 
-                        
-                        </div>
-                        <div class="form.goup">
-                            <input type="text" name="phone" placeholder="Phone" class="from-control"> 
+                            <input type="text" name="valueTwo" placeholder="valueTwo" class="from-control"> 
                         
                         </div>
                         <button type="submit" class="btn btn-primary"> 
-                            Save Customer
+                            Save 
                         </button>
                         </form>
                 </div>
@@ -65,6 +64,4 @@
         </div>
     </div>
 </div>
-
-
  <%- include('partials/_footer') %> 

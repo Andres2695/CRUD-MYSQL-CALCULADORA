@@ -2,12 +2,12 @@ const controller = {};
 
 controller.list = (req, res) => {
     req.getConnection((err,conn) =>{
-        conn.query('SELECT * FROM customer',(err,customers) => {
+        conn.query('SELECT * FROM operations',(err,operations) => {
             if(err){
                 res.json(err);
             }
-            res.render('customers',{
-                data:customers
+            res.render('operation',{
+                data:operations
             });
 
         });
@@ -16,7 +16,7 @@ controller.list = (req, res) => {
 controller.save = (req,res) => {
     const data = req.body;
 req.getConnection((err,conn) => {
-    conn.query('INSERT INTO customer set ?',[data],(err,customer) => {
+    conn.query('INSERT INTO operations set ?',[data],(err,operation) => {
        res.redirect('/');
 
     });
@@ -27,9 +27,9 @@ req.getConnection((err,conn) => {
 controller.edit = (req,res) => {
     const { id }= req.params;
     req.getConnection((err,conn)=>{
-        conn.query('SELECT * FROM customer WHERE id = ?',[id],(err,customer)=>{
-            res.render('customer_edit',{
-                data:customer[0]
+        conn.query('SELECT * FROM operations WHERE id = ?',[id],(err,operation)=>{
+            res.render('operation_edit',{
+                data:operation[0]
             });
 
         });
@@ -38,9 +38,9 @@ controller.edit = (req,res) => {
 };
 controller.update = (req,res)=>{
     const { id }= req.params;
-    const newCustomer= req.body;
+    const newOperation= req.body;
     req.getConnection((err,conn)=>{
-        conn.query('UPDATE customer set ? WHERE id = ?',[newCustomer,id], (err,rows)=>{
+        conn.query('UPDATE operations set ? WHERE id = ?',[newOperation,id], (err,rows)=>{
             res.redirect('/');
 
         });
@@ -51,11 +51,12 @@ controller.update = (req,res)=>{
 controller.delete = (req,res) => {
     const { id }= req.params;
 req.getConnection((err,conn) =>{
-    conn.query('DELETE FROM customer WHERE id = ?', [id],(err,rows)=>{
+    conn.query('DELETE FROM operations WHERE id = ?', [id],(err,rows)=>{
         res.redirect('/');
 
     });
 })
 };
+
 
 module.exports = controller;

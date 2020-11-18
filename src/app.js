@@ -7,13 +7,12 @@ const myConection  = require('express-myconnection');
 const app = express();
 //importando rutas
 
-const customerRoutes= require('./routes/customers')
+const customerRoutes= require('./routes/Operation')
 
 //settings
 app.set('port',process.env.PORT || 3000);
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
-
 //middlewares
 app.use(morgan('dev'));
 app.use(myConection(mysql, {
@@ -21,13 +20,10 @@ app.use(myConection(mysql, {
     user : 'root',
     password:'password',
     port:3306,
-    database: 'nodecrud'
+    database: 'calculadora'
 
 },'single'));
 app.use(express.urlencoded({extended: false}));
-
-
-
 //routes
 app.use('/',customerRoutes);
 

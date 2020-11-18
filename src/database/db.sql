@@ -1,13 +1,12 @@
 --create data base
-CREATE DATABASE crudnodeP;
+CREATE DATABASE calculadora;
  --usign data abse
- use crudnodeP;
+ use calculadora;
   --creating a table
-  CREATE TABLE customer (
+  CREATE TABLE operations (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(50) NOT NULL,
-address VARCHAR(50) NOT NULL,
-phone VARCHAR(15)
+valueOne INT(20) NOT NULL,
+valueTwo INT(20) NOT NULL
 
   );
 
